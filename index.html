@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>余韻ログ</title>
+<style>
+  :root { --accent: #8a6a33; --ink: #1d1d1f; --sub: #6e6e73; --card: #f5f3ef; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+         color: var(--ink); margin: 0; padding: 64px 24px; line-height: 1.7; }
+  .wrap { max-width: 820px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 64px; }
+  h1 { font-size: 2.6rem; font-weight: 800; margin: 0; letter-spacing: -0.01em;
+       font-family: "Hiragino Mincho ProN", serif; }
+  .tagline { color: var(--sub); font-size: 1.05rem; margin-top: 16px; }
+  h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 8px;
+       padding-bottom: 16px; border-bottom: 1px solid #e5e5ea; }
+  .cards { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  a.card { display: block; background: var(--card); border-radius: 14px;
+           padding: 20px 24px; text-decoration: none; color: var(--ink);
+           transition: background .15s ease; }
+  a.card:hover { background: #ece8e0; }
+  .card .title { font-size: 1.05rem; font-weight: 600; }
+  .card .desc { color: var(--sub); font-size: 0.92rem; margin-top: 4px; }
+  .contact { background: var(--card); border-radius: 14px; padding: 20px 24px; margin-top: 40px; }
+  .contact .title { font-weight: 700; margin-bottom: 8px; }
+  .contact p { margin: 4px 0; font-size: 0.95rem; }
+  .contact a { color: var(--accent); }
+  footer { text-align: center; color: var(--sub); font-size: 0.85rem; margin-top: 56px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>余韻ログ</h1>
+    <p class="tagline">映画・本・漫画・音楽の余韻を、端末のなかだけに残す日記</p>
+  </header>
+
+  <h2>各種規約・お問い合わせ</h2>
+  <div class="cards">
+    <a class="card" href="privacy-policy.html">
+      <div class="title">プライバシーポリシー</div>
+      <div class="desc">取得する情報とその利用目的について</div>
+    </a>
+    <a class="card" href="terms-of-service.html">
+      <div class="title">利用規約</div>
+      <div class="desc">サービスをご利用いただく際の条件</div>
+    </a>
+    <a class="card" href="tokushoho.html">
+      <div class="title">特定商取引法に基づく表記</div>
+      <div class="desc">アプリ内課金（買い切り）に関する事業者情報</div>
+    </a>
+  </div>
+
+  <div class="contact">
+    <div class="title">お問い合わせ</div>
+    <p>運営者：Katsuhide Leung</p>
+    <p>メール：<a href="mailto:katsuhideleung3@gmail.com">katsuhideleung3@gmail.com</a></p>
+  </div>
+
+  <footer>© 2026 katsuhide. All rights reserved.</footer>
+</div>
+</body>
+</html>
