@@ -57,16 +57,19 @@
   <li>作品の情報（題名・作者や監督・公開年・説明・媒体の種別）</li>
   <li>体験の記録（体験した日・星の評価・気分・自由記述のメモ）</li>
   <li>作品に添えた画像（利用者自身が写真ライブラリから選んだもの）</li>
-  <li>表示設定（作品棚の並べ替えや表示密度など）</li>
+  <li>表示設定（作品棚の並べ替えなど）</li>
 </ul>
 <p>写真ライブラリへのアクセスは、利用者が画像を追加する操作をしたときにのみ求めます。選ばれた画像はアプリ内の保存領域に複製され、それ以外の写真を読み取ることはありません。</p>
 
-<h2>2. 作品検索のために外部へ送信される情報</h2>
-<p>作品を検索したとき、<strong>入力された検索語のみ</strong>が次の外部サービスへ送信されます。感想・星・気分・メモ・写真が送信されることはありません。</p>
+<h2>2. 作品検索と表紙表示のために外部へ送信される情報</h2>
+<p>作品を検索したとき、<strong>入力された検索語のみ</strong>が、選んだ媒体に対応する次の外部サービスへ送信されます。感想・星・気分・メモ・写真が送信されることはありません。</p>
 <ul>
+  <li><strong>TMDB</strong>（The Movie Database）— 映画の題名・公開年、ポスター画像の所在を取得します。</li>
+  <li><strong>iTunes Search API</strong>（Apple Inc.）— 曲・アルバムの題名、アーティスト、ジャケット画像の所在を取得します。書籍・漫画の巻は、同じ API の Apple Books 検索から題名・作者・表紙の所在を取得します。</li>
   <li><strong>Wikidata</strong>（ウィキメディア財団）— 漫画シリーズの題名や作者を取得します。日本語版ウィキペディアの検索索引を経由して作品を特定する場合があります。</li>
-  <li><strong>iTunes Search API</strong>（Apple Inc.）— 曲・アルバムの題名、アーティスト、ジャケット画像の所在を取得します。</li>
 </ul>
+<p>表紙やポスターを画面に表示するとき、画像そのものを各提供元の配信先（Apple の <code>mzstatic.com</code>、TMDB の <code>image.tmdb.org</code>）から読み込みます。この通信によっても、各提供元に IP アドレスなどの接続情報が記録されることがあります。</p>
+<p>TMDB から取得した作品情報は端末内に保存し、取得から6か月を過ぎたものは再取得します。再取得できない場合はポスターの表示を取りやめ、題名などのテキストは端末内に残します。</p>
 <p>これらの通信には、送信元を識別するための一般的な情報（IPアドレスなど）が各サービスに記録されることがあります。取り扱いは各サービスの方針に従います。本アプリはこれらのサービスへ利用者を識別する情報を送信しません。</p>
 
 <h2>3. 利用状況の分析</h2>
@@ -101,7 +104,7 @@
 <h2>9. お問い合わせ</h2>
 <p>本ポリシーに関するお問い合わせは、<a href="mailto:katsuhideleung3@gmail.com">katsuhideleung3@gmail.com</a> までご連絡ください。</p>
 
-<p class="meta">制定日：2026年9月9日<br>改定日：2026年9月10日（利用状況の分析の記述を改めました）<br>作品ログ 運営者：Katsuhide Leung</p>
+<p class="meta">制定日：2026年9月9日<br>改定日：2026年9月10日（利用状況の分析の記述を改めました）／2026年9月11日（利用する提供元に TMDB・Apple Books を加え、表紙表示の通信を明記しました）<br>作品ログ 運営者：Katsuhide Leung</p>
 </div>
 
 <div data-lang="en" hidden>
@@ -119,16 +122,19 @@
   <li>Work details (title, creator or director, release year, description, medium)</li>
   <li>Experience records (date, star rating, mood, free-text note)</li>
   <li>Images you attach to a work, chosen from your own photo library</li>
-  <li>Display preferences such as shelf layout and ordering</li>
+  <li>Display preferences such as shelf ordering</li>
 </ul>
 <p>Photo library access is requested only when you choose to add an image. The selected image is copied into the App's own storage; no other photo is read.</p>
 
-<h2>2. Information sent externally for catalogue search</h2>
-<p>When you search for a work, <strong>only the words you type</strong> are sent to the following services. Your notes, ratings, moods and photos are never sent.</p>
+<h2>2. Information sent externally for catalogue search and cover display</h2>
+<p>When you search for a work, <strong>only the words you type</strong> are sent to the service for the medium you chose, from the list below. Your notes, ratings, moods and photos are never sent.</p>
 <ul>
-  <li><strong>Wikidata</strong> (Wikimedia Foundation) — titles and creators of films, books and manga series. Japanese Wikipedia's search index may be used to resolve a work.</li>
-  <li><strong>iTunes Search API</strong> (Apple Inc.) — titles, artists and artwork locations for songs and albums.</li>
+  <li><strong>TMDB</strong> (The Movie Database) — film titles, release years and poster image locations.</li>
+  <li><strong>iTunes Search API</strong> (Apple Inc.) — titles, artists and artwork locations for songs and albums. Books and manga volumes use the Apple Books search of the same API for title, creator and cover locations.</li>
+  <li><strong>Wikidata</strong> (Wikimedia Foundation) — titles and creators of manga series. Japanese Wikipedia's search index may be used to resolve a work.</li>
 </ul>
+<p>When a cover or poster is shown on screen, the image itself is loaded from the provider's image host (Apple's <code>mzstatic.com</code>, TMDB's <code>image.tmdb.org</code>). This request may also cause an IP address or similar connection information to be recorded by that provider.</p>
+<p>Film information obtained from TMDB is kept on your device and re-fetched after six months. If it cannot be re-fetched, the poster is no longer shown while the title and other text remain on your device.</p>
 <p>These requests may cause general connection information such as an IP address to be recorded by each service under its own policy. The App does not send anything that identifies you.</p>
 
 <h2>3. Usage analytics</h2>
@@ -163,7 +169,7 @@
 <h2>9. Contact</h2>
 <p>Questions about this policy: <a href="mailto:katsuhideleung3@gmail.com">katsuhideleung3@gmail.com</a></p>
 
-<p class="meta">Effective: September 9, 2026<br>Revised: September 10, 2026 (usage analytics section updated)<br>Yoin Log operator: Katsuhide Leung</p>
+<p class="meta">Effective: September 9, 2026<br>Revised: September 10, 2026 (usage analytics section updated); September 11, 2026 (TMDB and Apple Books added to the providers, cover requests described)<br>Yoin Log operator: Katsuhide Leung</p>
 </div>
 
 <script>
